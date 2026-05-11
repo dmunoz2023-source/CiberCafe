@@ -16,7 +16,7 @@ export default function LoginForm() {
 
     // AQUI IRÁ LA CONEXIÓN CON TU BACKEND (API)
     // Simularemos que las credenciales son incorrectas para probar el bloqueo
-    const isLoginSuccessful = false; 
+    const isLoginSuccessful = email == 'user@example.com' && password == 'password123';
 
     if (!isLoginSuccessful) {
       const newAttempts = failedAttempts + 1;
@@ -30,8 +30,8 @@ export default function LoginForm() {
       }
     } else {
       // Lógica de éxito (redireccionar según rol VIP, Estándar o Admin)
-      setErrorMsg('');
       alert('Inicio de sesión exitoso');
+      window.location.href = '/client-dashboard'; // Redirige al dashboard del cliente (ajustar según rol)
     }
   };
 

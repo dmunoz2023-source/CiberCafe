@@ -6,26 +6,64 @@ import styles from "./KitchenBoard.module.css";
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
 
 const FILTROS = [
-  { valor: "all",       label: "Todos" },
-  { valor: "pending",   label: "Pendientes" },
-  { valor: "ready",     label: "Listos" },
+  { valor: "all", label: "Todos" },
+  { valor: "pending", label: "Pendientes" },
+  { valor: "ready", label: "Listos" },
   { valor: "delivered", label: "Entregados" },
 ];
 
 export default function KitchenBoard() {
-  const [orders, setOrders]   = useState([]);
-  const [filtro, setFiltro]   = useState("pending");
+  const [orders, setOrders] = useState([]);
+  const [filtro, setFiltro] = useState("pending");
   const [loading, setLoading] = useState(true);
-  const [error, setError]     = useState(null);
+  const [error, setError] = useState(null);
+
+  const pedidosPrueba = [
+    {
+      id: 1,
+      stationId: 3,
+      status: "pending",
+      createdAt: new Date(Date.now() - 2 * 60000).toISOString(),
+      items: [
+        { name: "Café Americano", qty: 2 },
+        { name: "Sandwich Jamón Queso", qty: 1 },
+      ],
+      total: 3500,
+    },
+    {
+      id: 2,
+      stationId: 1,
+      status: "preparing",
+      createdAt: new Date(Date.now() - 7 * 60000).toISOString(),
+      items: [
+        { name: "Té Chai", qty: 1 },
+        { name: "Brownie", qty: 2 },
+      ],
+      total: 4200,
+    },
+    {
+      id: 3,
+      stationId: 2,
+      status: "ready",
+      createdAt: new Date(Date.now() - 15 * 60000).toISOString(),
+      items: [{ name: "Capuccino", qty: 1 }],
+      total: 1800,
+    },
+  ];
 
   const fetchOrders = useCallback(async () => {
     try {
-      const res  = await fetch(`${API_BASE}/api/menu/orders`);
+      const res = await fetch(`${API_BASE}/api/menu/orders`);
       const data = await res.json();
-      setOrders(data.orders ?? []);
+      if (Array.isArray(data.orders) && data.orders.length > 0) {
+        setOrders(data.orders);
+      } else {
+        setOrders(pedidosPrueba);
+      }
       setError(null);
     } catch {
       setError("No se pudo conectar con el servidor.");
+      setOrders(pedidosPrueba);
     } finally {
       setLoading(false);
     }
@@ -53,14 +91,12 @@ export default function KitchenBoard() {
   };
 
   const ordenesVisibles =
-    filtro === "all"
-      ? orders
-      : orders.filter((o) => o.status === filtro);
+    filtro === "all" ? orders : orders.filter((o) => o.status === filtro);
 
   const conteo = {
-    pending:   orders.filter((o) => o.status === "pending").length,
+    pending: orders.filter((o) => o.status === "pending").length,
     preparing: orders.filter((o) => o.status === "preparing").length,
-    ready:     orders.filter((o) => o.status === "ready").length,
+    ready: orders.filter((o) => o.status === "ready").length,
   };
 
   return (
@@ -111,9 +147,7 @@ export default function KitchenBoard() {
         </button>
       </div>
 
-      {loading && (
-        <p className={styles.estado}>Cargando pedidos…</p>
-      )}
+      {loading && <p className={styles.estado}>Cargando pedidos…</p>}
 
       {error && (
         <p className={`${styles.estado} ${styles.estadoError}`}>{error}</p>
@@ -121,7 +155,11 @@ export default function KitchenBoard() {
 
       {!loading && !error && ordenesVisibles.length === 0 && (
         <p className={styles.estado}>
-          No hay pedidos {filtro !== "all" ? `"${FILTROS.find(f=>f.valor===filtro)?.label.toLowerCase()}"` : ""} en este momento.
+          No hay pedidos{" "}
+          {filtro !== "all"
+            ? `"${FILTROS.find((f) => f.valor === filtro)?.label.toLowerCase()}"`
+            : ""}{" "}
+          en este momento.
         </p>
       )}
 

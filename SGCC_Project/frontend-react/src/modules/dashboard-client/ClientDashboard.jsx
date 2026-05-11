@@ -5,7 +5,7 @@ import ActiveSession from './ActiveSession';
 const ClientDashboard = ({ user }) => {
     const [balance, setBalance] = useState(user.saldo || 0);
     const [activeSession, setActiveSession] = useState(null); // Datos de la sesión si existe
-    const [view, setView] = useState('home');
+    const [view, setView] = useState('client-dashboard'); // Para manejar vistas dinámicas
 
     // Simulación de conexión WebSocket para actualizaciones de saldo/sesión
     useEffect(() => {
@@ -19,13 +19,13 @@ const ClientDashboard = ({ user }) => {
             <nav className={styles.sidebar}>
                 <div className={styles.logo}>SGCC<span>.</span></div>
                 <ul className={styles.menu}>
-                    <li className={view === 'home' ? styles.active : ''} onClick={() => setView('home')}>
+                    <li className={view === 'client-dashboard' ? styles.active : ''} onClick={() => { setView('client-dashboard'); window.location.href = '/client-dashboard'; }}>
                         <i className="fas fa-home"></i> Inicio
                     </li>
-                    <li className={view === 'reserve' ? styles.active : ''} onClick={() => setView('reserve')}>
+                    <li className={view === 'booking' ? styles.active : ''} onClick={() => { setView('booking'); window.location.href = '/booking'; }}>
                         <i className="fas fa-calendar-alt"></i> Reservar Equipo
                     </li>
-                    <li className={view === 'menu' ? styles.active : ''} onClick={() => setView('menu')}>
+                    <li className={view === 'shopping-cart' ? styles.active : ''} onClick={() => { setView('shopping-cart'); window.location.href = '/shopping-cart'; }}>
                         <i className="fas fa-utensils"></i> Menú Digital
                     </li>
                 </ul>
