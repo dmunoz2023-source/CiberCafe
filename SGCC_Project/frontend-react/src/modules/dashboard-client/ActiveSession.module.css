@@ -1,0 +1,56 @@
+.sessionCard {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* Indicador de sesión activa */
+.sessionCard::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 20%;
+    height: 60%;
+    width: 4px;
+    background: #deff9a;
+    box-shadow: 0 0 15px #deff9a;
+    border-radius: 0 4px 4px 0;
+}
+
+.timeTicker h3 {
+    font-size: 54px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.discountTag {
+    background: rgba(222, 255, 154, 0.1);
+    border: 1px solid #deff9a;
+    color: #deff9a;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.stopBtn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    border-radius: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.2);
+}

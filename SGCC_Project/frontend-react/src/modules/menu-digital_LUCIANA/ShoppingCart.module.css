@@ -1,0 +1,211 @@
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.5rem;
+  height: 100%;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+}
+
+.catalogo {
+  min-height: 0;
+}
+
+.carrito {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.carritoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.carritoTitulo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.saldo {
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+.vacio {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.itemRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemNombre {
+  font-size: 0.85rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.itemPrecio {
+  font-size: 0.85rem;
+  color: #0f6e56;
+  font-weight: 600;
+}
+
+.itemControles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btnQty {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #475569;
+}
+
+.btnQty:hover {
+  background: #f1f5f9;
+}
+
+.qty {
+  font-size: 0.85rem;
+  min-width: 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.btnEliminar {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.btnEliminar:hover {
+  color: #ef4444;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #1e293b;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 0.75rem;
+}
+
+.totalInsuficiente {
+  color: #dc2626;
+}
+
+.alertaSaldo {
+  font-size: 0.78rem;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+}
+
+.exitoAlert {
+  font-size: 0.82rem;
+  color: #0f6e56;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+.errorMsg {
+  font-size: 0.78rem;
+  color: #dc2626;
+  margin: 0;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btnLimpiar {
+  flex: 1;
+  padding: 0.55rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: transparent;
+  color: #475569;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btnLimpiar:hover {
+  background: #f1f5f9;
+}
+
+.btnPedir {
+  flex: 2;
+  padding: 0.55rem;
+  background: #1d9e75;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnPedir:hover:not(:disabled) {
+  background: #0f6e56;
+}
+
+.btnPedir:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}

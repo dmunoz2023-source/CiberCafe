@@ -1,0 +1,19 @@
+.dashboardContainer {
+  padding: 2rem;
+  background-color: #0f0f1a;
+  min-height: 100vh;
+  color: white;
+}
+
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}

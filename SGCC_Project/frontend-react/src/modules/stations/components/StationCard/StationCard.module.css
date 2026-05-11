@@ -1,0 +1,40 @@
+.card {
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 200px;
+  text-align: center;
+  background-color: #1e1e26;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.available {
+  border-color: #28a745;
+}
+
+.occupied {
+  border-color: #dc3545;
+}
+
+.stationNumber {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.statusText {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.priceInfo {
+  font-size: 1.1rem;
+  color: #f1c40f; /* Color dorado para el cobro */
+  font-weight: bold;
+}

@@ -1,0 +1,8 @@
+/* Variables de color corporativo */
+:root {
+  --primary   : #1e90ff;
+  --secondary : #ffb300;
+  --danger    : #e53935;
+  --background: #fafafa;
+  --text      : #222;
+}

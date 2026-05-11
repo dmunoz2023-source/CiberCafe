@@ -1,0 +1,70 @@
+.formCard {
+  background-color: #1e1e26;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #333;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.field input, .field select {
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #0f0f1a;
+  color: white;
+}
+
+.warning {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #e74c3c;
+  font-size: 0.85rem;
+}
+
+.paymentSummary {
+  background-color: #2c2c3e;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.depositText {
+  color: #f1c40f;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.submitBtn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}

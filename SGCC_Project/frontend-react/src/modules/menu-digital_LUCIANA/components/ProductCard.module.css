@@ -1,0 +1,70 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease;
+}
+
+.card:hover:not(.agotado) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.agotado {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.nombre {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.descripcion {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.precio {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f6e56;
+  margin-top: 0.2rem;
+}
+
+.btnAgregar {
+  flex-shrink: 0;
+  padding: 0.45rem 1rem;
+  background: #1d9e75;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btnAgregar:hover:not(:disabled) {
+  background: #0f6e56;
+}
+
+.btnAgregar:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}

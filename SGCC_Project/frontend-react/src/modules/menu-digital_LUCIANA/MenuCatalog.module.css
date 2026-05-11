@@ -1,0 +1,29 @@
+.catalogo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.grilla {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.estado {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #b91c1c;
+}
