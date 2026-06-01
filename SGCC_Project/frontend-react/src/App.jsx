@@ -23,7 +23,7 @@ export default function App() {
         <Route path="/stations" element={<StationsDashboard/>} />
         <Route path="/kitchen-board" element={<KitchenBoard/>} />
         <Route path="/shopping-cart" element={<ShoppingCart userId={1} stationId={1} userBalance={20000} />} />
-        <Route path="/client-dashboard" element={<ClientDashboard user={{ id: 1, username: "john_doe", balance: 20, saldo: 20 }} />} />
+        <Route path="/client-dashboard" element={<ClientDashboard user={{ id: 1, username: "john_doe", balance: 20, saldo: 2000 }} />} />
       </Routes>
     </Router>
   );
